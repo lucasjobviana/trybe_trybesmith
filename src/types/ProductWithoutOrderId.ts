@@ -1,6 +1,5 @@
-export type Product = {
+export type ProductWithoutOrderId = {
   id: number;
   name: string;
   price: string;
-  orderId: number;
 };

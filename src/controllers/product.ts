@@ -8,8 +8,8 @@ const getAllProducts = async (req: Request, res: Response, _next: NextFunction) 
 
 const createProduct = async (req: Request, res: Response, _next: NextFunction) => {
   const { name, orderId, price } = req.body;
-  await ProductService.createProduct({ name, orderId, price });
-  res.status(201).json({ message: `Product created successfully ${name} ${orderId} ${price}` });
+  const newProduct = await ProductService.createProduct({ name, orderId, price });
+  res.status(201).json({ id: newProduct.id, name: newProduct.name, price: newProduct.price });
 };
 
 export default {
