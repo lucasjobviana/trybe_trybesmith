@@ -2,7 +2,6 @@ import sinon from 'sinon';
 import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 import app from '../../../src/app';
-import { Product } from '../../../src/types/Product';
 
 chai.use(chaiHttp);
 
