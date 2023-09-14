@@ -13,4 +13,4 @@ const validateCreateProductInput = (req: Request, res: Response, next: NextFunct
   next();
 };
 
-export default validateCreateProductInput;
+export default { validateCreateProductInput };

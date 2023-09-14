@@ -6,7 +6,7 @@ const getAllProducts = async (req: Request, res: Response, _next: NextFunction) 
   res.status(200).json(products);
 };
 
-const createProduct = async (req: Request, res: Response, _next: NextFunction) => {
+const createProduct = async (req: Request, res: Response, _: NextFunction) => {
   const { name, orderId, price } = req.body;
   const newProduct = await ProductService.createProduct({ name, orderId, price });
   res.status(201).json({ id: newProduct.id, name: newProduct.name, price: newProduct.price });

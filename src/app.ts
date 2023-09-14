@@ -15,6 +15,7 @@ app.use('/orders', orderRouter);
 app.use((err: ServiceError, _req:Request, res:Response, next:NextFunction) => {
   if (err) {
     const msgError = err.message;
+    console.log(err);
     return res.status(err.statusCode || 555).json({ message: `${msgError}` });
   }
   next();

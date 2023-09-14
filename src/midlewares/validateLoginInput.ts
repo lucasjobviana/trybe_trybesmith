@@ -10,4 +10,4 @@ const validateLoginInput = (req: Request, res: Response, next: NextFunction)
   next();
 };
 
-export default validateLoginInput;
+export default { validateLoginInput };
