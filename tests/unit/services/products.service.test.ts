@@ -11,6 +11,8 @@ describe('ProductsService', function () {
     sinon.restore(); 
   });
 
+  afterEach(function () { sinon.restore(); });
+
   it('GetAllProducts: Retorna um array de produtos. ', async function () {
     const products: Product[] = [
       { id: 1, name: 'Product 1', price: '100' , orderId: 1},

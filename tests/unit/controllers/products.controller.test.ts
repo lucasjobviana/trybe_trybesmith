@@ -18,6 +18,8 @@ describe('ProductsController', function () {
     sinon.restore();
   });
 
+  afterEach(function () { sinon.restore(); });
+
   it('getAllProducts: Retorna um array de produtos com o status 200.', async function () {
     const products: Product[] = [
       { id: 1, name: 'Product 1', price: '100' , orderId: 1},

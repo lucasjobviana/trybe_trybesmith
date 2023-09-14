@@ -1,6 +1,6 @@
 import OrderModel from '../database/models/order.model';
 import ProductModel from '../database/models/product.model';
-import { Order } from '../types/Order';
+import { Order } from '../types/Order'; 
 
 const getAllOrdersWithProductIds = async (): Promise<Order[]> => {
   const orders = await OrderModel.findAll();

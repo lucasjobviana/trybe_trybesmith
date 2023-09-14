@@ -3,5 +3,6 @@ import sinon from 'sinon';
 
 describe('LoginService', function () {
   beforeEach(function () { sinon.restore(); });
+  afterEach(function () { sinon.restore(); });
 
 });
