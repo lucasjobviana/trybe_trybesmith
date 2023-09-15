@@ -25,7 +25,8 @@ describe('OrdersController', function () {
   });
 
   type OrderWithProductIds = Order & { productIds: number[] };
-
+  type NewOrderWithProductIds = { productIds: number[], userId: number };
+ 
   it('getAllOrdersWithProductIds: Retorna um array de vendas, com seus productIds, e o status 200.', async function () {
     const order: OrderWithProductIds[] = [
       { id:1,  userId: 1, productIds: [1,2]},
@@ -38,7 +39,45 @@ describe('OrdersController', function () {
 
     expect(res.status).to.have.been.calledWith(200);
     expect(res.json).to.have.been.calledWith(order);
+  });
 
+  it('createOrder: Retorna uma nova venda e o status 201.', async function () {
+    const order: NewOrderWithProductIds = 
+      { userId: 1, productIds: [1,2]}
+    ; 
 
+    const reqWithOrder = {
+      body: {
+        userId: 1,
+        productIds: [1,2],
+      },
+    } as Request;
+
+    
+    OrderService.createOrder = sinon.stub().returns(order);
+
+    await OrderController.createOrder(reqWithOrder, res, () => {});
+
+    expect(res.status).to.have.been.calledWith(201);
+    expect(res.json).to.have.been.calledWith(order);
+  });
+
+  it('createOrder: Retorna undefined caso não seja possível criar a nova venda.', async function () {
+    const order: NewOrderWithProductIds = 
+      { userId: 1, productIds: [1,2]}
+    ; 
+
+    const reqWithOrder = {
+      body: {
+        userId: 1,
+        productIds: [1,2],
+      },
+    } as Request;
+
+    
+    OrderService.createOrder = sinon.stub().returns(false);
+
+    const functionReturn = await OrderController.createOrder(reqWithOrder, res, () => {});
+    expect(functionReturn).to.be.undefined;
   });
 });

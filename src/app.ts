@@ -4,13 +4,12 @@ import productRouter from './routes/product';
 import orderRouter from './routes/order';
 import loginRouter from './routes/login';
 import ServiceError from './services/serviceError';
-import checkUserAuthentication from './midlewares/checkUserAuthentication';
 
 const app = express();
 
 app.use(express.json());
 app.use('/login', loginRouter);
-app.use('/products', productRouter);
+app.use('/products', productRouter); 
 app.use('/orders', orderRouter);
 // app.use(checkUserAuthentication);
 

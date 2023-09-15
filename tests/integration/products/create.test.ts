@@ -6,7 +6,7 @@ import ProductModel from '../../../src/database/models/product.model';
 
 chai.use(chaiHttp);
 
-describe('Integração: Produtos.', function () { 
+describe('Integração - Produtos - POST.', function () { 
   beforeEach(function () { sinon.restore(); });
 
   it('create: Retorna um novo produto e o status 201', async function() {

@@ -13,10 +13,8 @@ const checkUserAuthentication = (req: Request, res: Response, next: NextFunction
     const user = jwt.verify(token, 'calafjksaoiekalladioadj');
     req.body.user = user;
   } catch (error) {
-    throw new ServiceError('Invalid token');
+    throw new ServiceError('Invalid token'); 
   }
-
-  
 
   next();
 };

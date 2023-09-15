@@ -32,7 +32,6 @@ describe('LoginMiddleware', function () {
     expect(res.status).to.have.been.calledWith(400);
   });
 
-
   it('loginInput: Verifica se a função next é chamada caso seja passado password e username.', async function () {
     const nextStub = sinon.stub();
     v.validateLoginInput({body:{password:"d", username:"d" }}as Request, res, nextStub);

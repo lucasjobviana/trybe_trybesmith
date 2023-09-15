@@ -7,6 +7,6 @@ const router = Router();
 
 router.get('/', orderController.getAllOrdersWithProductIds);
 
-router.post('/', checkUserAuthentication,v.validateCreateOrderInput, orderController.createOrder);
+router.post('/', checkUserAuthentication, v.validateCreateOrderInput, orderController.createOrder);
 
 export default router;

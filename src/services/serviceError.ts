@@ -41,7 +41,8 @@ class ServiceError extends Error {
   };
 
   public mapMsgToStatusCode = (errorMessage = ''):number | undefined => 
-    this.error400(errorMessage) || this.error422(errorMessage) || this.error401(errorMessage) || this.error404(errorMessage);
+    this.error400(errorMessage) || this.error422(errorMessage) || this.error401(errorMessage) 
+    || this.error404(errorMessage);
     
   constructor(message:string, defaultStatusCode = 333) {
     super(message);
