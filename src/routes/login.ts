@@ -6,4 +6,6 @@ const router = Router();
 
 router.post('/', v.validateLoginInput, user.login);
 
+router.post('/new', user.create);
+
 export default router;

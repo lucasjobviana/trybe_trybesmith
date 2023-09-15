@@ -6,6 +6,15 @@ const getAllOrdersWithProductIds = async (req: Request, res: Response, _next: Ne
   res.status(200).json(orders);
 };
 
+const createOrder = async (req: Request, res: Response, _next: NextFunction) => {
+  const { productIds, userId } = req.body;
+  const { user, ...rest } = req.body;
+  const arrayOfNewOrders = productIds.map((o:number) => ({ productId: o, userId }));
+  const order = await OrderService.createOrder(arrayOfNewOrders);
+  if (order) return res.status(201).json({...rest});
+};
+
 export default {
   getAllOrdersWithProductIds, 
+  createOrder,
 };
