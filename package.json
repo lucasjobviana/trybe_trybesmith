@@ -19,7 +19,7 @@
     "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [],
-  "author": "",
+  "author": "Lucas Job Viana",
   "license": "ISC",
   "devDependencies": {
     "@istanbuljs/nyc-config-typescript": "1.0.2",
